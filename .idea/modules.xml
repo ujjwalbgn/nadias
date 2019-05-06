@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$USER_HOME$/Downloads/Ex_Files_Laravel_VueJS_WebApps/Ex_Files_Laravel_VueJS_WebApps/Exercise Files/.idea/Exercise Files.iml" filepath="$USER_HOME$/Downloads/Ex_Files_Laravel_VueJS_WebApps/Ex_Files_Laravel_VueJS_WebApps/Exercise Files/.idea/Exercise Files.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/nadias.iml" filepath="$PROJECT_DIR$/.idea/nadias.iml" />
     </modules>
   </component>
