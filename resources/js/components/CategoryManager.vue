@@ -45,6 +45,10 @@
                     this.$refs[''][0].focus();
                 });
             }
+        },
+
+        created(){
+            axios.post('/api/categories/upsert');
         }
     }
 </script>

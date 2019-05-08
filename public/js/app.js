@@ -1809,6 +1809,9 @@ __webpack_require__.r(__webpack_exports__);
         _this.$refs[''][0].focus();
       });
     }
+  },
+  created: function created() {
+    axios.post('/api/categories/upsert');
   }
 });
 
