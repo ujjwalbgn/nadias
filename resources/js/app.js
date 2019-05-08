@@ -21,6 +21,8 @@ window.Vue = require('vue');
 
 // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('category-manager', require('./components/CategoryManager.vue').default);
+Vue.component('menu-editor', require('./components/MenuEditor.vue').default);
+
 
 
 /**
