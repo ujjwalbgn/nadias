@@ -16,13 +16,11 @@ class CategoriesTableSeeder extends Seeder
                 'name' => 'Starters',
                 'image' => 'mushrooms.jpg',
                 'display_order' => 1
-
             ],
             [
                 'name' => 'Salads',
-                'image' => 'salads.jpg',
+                'image' => 'salad.jpg',
                 'display_order' => 2
-
             ],
             [
                 'name' => 'Entrees',

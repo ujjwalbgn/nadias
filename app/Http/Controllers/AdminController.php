@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Category;
 use Illuminate\Http\Request;
+use App\Category;
 
 class AdminController extends Controller
 {

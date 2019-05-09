@@ -223,6 +223,24 @@ a.remove {
   color: red;
 }
 
+form {
+  padding-top: 30px;
+}
+
+select {
+  height: 40px;
+  border-radius: 5px;
+}
+
+.menu-item-list {
+  padding-top: 30px;
+}
+
+textarea {
+  width: 255px;
+  height: 100px;
+}
+
 @media only screen and (max-width: 770px) {
   nav ul {
     flex-direction: column;

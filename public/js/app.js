@@ -1782,9 +1782,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['initial-categories'],
+  props: ['initialCategories'],
   data: function data() {
     return {
       categories: _.cloneDeep(this.initialCategories),
@@ -1793,11 +1792,11 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     removeCategory: function removeCategory(index) {
-      if (confirm("Are you sure ?")) {
+      if (confirm('Are you sure?')) {
         var id = this.categories[index].id;
 
         if (id > 0) {
-          axios["delete"]('api/categories/' + id);
+          axios["delete"]('/api/categories/' + id);
         }
 
         this.categories.splice(index, 1);
@@ -1830,8 +1829,7 @@ __webpack_require__.r(__webpack_exports__);
         }
       });
     }
-  },
-  created: function created() {}
+  }
 });
 
 /***/ }),
@@ -1857,13 +1855,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['categories'],
   router: new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
+    mode: 'history',
+    base: 'menu-editor',
     routes: [{
       path: '/categories',
       name: 'categories',
@@ -1877,8 +1876,63 @@ __webpack_require__.r(__webpack_exports__);
       path: '/add-item',
       name: 'add-item',
       component: _MenuItem_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+    }, {
+      path: '*',
+      redirect: '/'
     }]
   })
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/MenuItem.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/MenuItem.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['initial-categories'],
+  data: function data() {
+    return {
+      item: {
+        name: '',
+        price: 0.00,
+        image: '',
+        category_id: '',
+        description: ''
+      },
+      errors: []
+    };
+  },
+  methods: {
+    save: function save() {}
+  }
 });
 
 /***/ }),
@@ -6340,7 +6394,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\nimg[data-v-d6b20498]{\n    vertical-align: middle;\n}\nhr[data-v-d6b20498]{\n    margin-bottom: 30px;\n}\n", ""]);
+exports.push([module.i, "\nhr[data-v-d6b20498] {\n    margin-bottom: 30px;\n}\nimg[data-v-d6b20498] {\n    vertical-align: middle;\n}\n", ""]);
 
 // exports
 
@@ -6359,7 +6413,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\na[data-v-45aa5657] {\n    border: solid 1px black ;\n    padding: 10px;\n    margin: 0;\n}\n.router-link-active[data-v-45aa5657] {\n    font-weight: bold;\n    border-bottom: none;\n}\n", ""]);
+exports.push([module.i, "\na[data-v-45aa5657] {\n    border: solid 1px black;\n    padding: 10px;\n    margin: 0;\n}\n.router-link-active[data-v-45aa5657] {\n    font-weight: bold;\n    border-bottom: none;\n}\n", ""]);
 
 // exports
 
@@ -37925,7 +37979,7 @@ var render = function() {
                 expression: "category.display_order"
               }
             ],
-            attrs: { type: "text" },
+            attrs: { type: "number" },
             domProps: { value: category.display_order },
             on: {
               input: function($event) {
@@ -37947,39 +38001,35 @@ var render = function() {
                 }
               }
             },
-            [_vm._v("Delete")]
+            [_vm._v("delete")]
           ),
           _vm._v(" "),
-          _c(
-            "div",
-            [
-              category.image
-                ? _c("img", {
-                    attrs: { src: "/images/" + category.image, width: "100" }
-                  })
-                : _c("level", [_vm._v("Image")]),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model.lazy",
-                    value: category.image,
-                    expression: "category.image",
-                    modifiers: { lazy: true }
-                  }
-                ],
-                attrs: { type: "text" },
-                domProps: { value: category.image },
-                on: {
-                  change: function($event) {
-                    return _vm.$set(category, "image", $event.target.value)
-                  }
+          _c("div", [
+            category.image
+              ? _c("img", {
+                  attrs: { src: "/images/" + category.image, width: "100" }
+                })
+              : _c("label", [_vm._v("Image: ")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model.lazy",
+                  value: category.image,
+                  expression: "category.image",
+                  modifiers: { lazy: true }
                 }
-              })
-            ],
-            1
-          ),
+              ],
+              attrs: { type: "text" },
+              domProps: { value: category.image },
+              on: {
+                change: function($event) {
+                  return _vm.$set(category, "image", $event.target.value)
+                }
+              }
+            })
+          ]),
           _vm._v(" "),
           _c("hr")
         ])
@@ -38054,7 +38104,144 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("form", [_vm._v("Add/Edit item")])
+  return _c(
+    "form",
+    {
+      staticClass: "item-form",
+      on: {
+        submit: function($event) {
+          $event.preventDefault()
+          return _vm.save($event)
+        }
+      }
+    },
+    [
+      _c("div", [
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.item.name,
+              expression: "item.name"
+            }
+          ],
+          attrs: { type: "text", placeholder: "Item name", required: "" },
+          domProps: { value: _vm.item.name },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.item, "name", $event.target.value)
+            }
+          }
+        }),
+        _vm._v("\n        $"),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.item.price,
+              expression: "item.price"
+            }
+          ],
+          attrs: { type: "number", min: "0", step: ".01", required: "" },
+          domProps: { value: _vm.item.price },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.item, "price", $event.target.value)
+            }
+          }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("textarea", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.item.description,
+              expression: "item.description"
+            }
+          ],
+          attrs: { placeholder: "Item description", required: "" },
+          domProps: { value: _vm.item.description },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.item, "description", $event.target.value)
+            }
+          }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c(
+          "select",
+          {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.item.category_id,
+                expression: "item.category_id"
+              }
+            ],
+            attrs: { required: "" },
+            on: {
+              change: function($event) {
+                var $$selectedVal = Array.prototype.filter
+                  .call($event.target.options, function(o) {
+                    return o.selected
+                  })
+                  .map(function(o) {
+                    var val = "_value" in o ? o._value : o.value
+                    return val
+                  })
+                _vm.$set(
+                  _vm.item,
+                  "category_id",
+                  $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                )
+              }
+            }
+          },
+          [
+            _c("option", { attrs: { value: "" } }, [
+              _vm._v("Select a category")
+            ]),
+            _vm._v(" "),
+            _vm._l(_vm.initialCategories, function(cat) {
+              return _c(
+                "option",
+                { key: cat.id, domProps: { value: cat.id } },
+                [_vm._v(_vm._s(cat.name))]
+              )
+            })
+          ],
+          2
+        )
+      ]),
+      _vm._v(" "),
+      _c("button", { attrs: { type: "submit" } }, [_vm._v("Save")]),
+      _vm._v(" "),
+      _c(
+        "ul",
+        _vm._l(_vm.errors, function(error, index) {
+          return _c("li", { key: index }, [_vm._v(_vm._s(error))])
+        }),
+        0
+      )
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -52905,9 +53092,8 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
  *
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
-// const files = require.context('./', true, /\.vue$/i);
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
-// Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+// const files = require.context('./', true, /\.vue$/i)
+// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key)))
 
 Vue.component('category-manager', __webpack_require__(/*! ./components/CategoryManager.vue */ "./resources/js/components/CategoryManager.vue")["default"]);
 Vue.component('menu-editor', __webpack_require__(/*! ./components/MenuEditor.vue */ "./resources/js/components/MenuEditor.vue")["default"]);
@@ -53165,15 +53351,17 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _MenuItem_vue_vue_type_template_id_23ec797d___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MenuItem.vue?vue&type=template&id=23ec797d& */ "./resources/js/components/MenuItem.vue?vue&type=template&id=23ec797d&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _MenuItem_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MenuItem.vue?vue&type=script&lang=js& */ "./resources/js/components/MenuItem.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
-var script = {}
+
+
 
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
-  script,
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _MenuItem_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _MenuItem_vue_vue_type_template_id_23ec797d___WEBPACK_IMPORTED_MODULE_0__["render"],
   _MenuItem_vue_vue_type_template_id_23ec797d___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
@@ -53187,6 +53375,20 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 if (false) { var api; }
 component.options.__file = "resources/js/components/MenuItem.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/MenuItem.vue?vue&type=script&lang=js&":
+/*!***********************************************************************!*\
+  !*** ./resources/js/components/MenuItem.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MenuItem_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./MenuItem.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/MenuItem.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MenuItem_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 

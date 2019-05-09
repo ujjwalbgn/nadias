@@ -10,22 +10,22 @@ class CategoryPolicy
 {
     use HandlesAuthorization;
 
-
     public function before($user, $ability)
     {
-        if($user->is_admin){
+        if ($user->is_admin) {
             return true;
         }
     }
+
     /**
-     * Determine whether the user can manage the category.
+     * Determine whether the user can manage categories.
      *
-     * @param  \App\User  $user
+     * @param  \App\User  $user     
      * @return mixed
      */
     public function manage(User $user)
     {
-        //
+        
     }
 
     /**
