@@ -19,9 +19,9 @@ Route::delete('/categories/{category}', 'CategoryController@destroy');
 
 Route::post('/menu-items/add', 'MenuItemController@store');
 
-Route::post('/add-image', function(Request $request){
-   $file = $request->file('file');
-   $dir = 'public/images';
-   $path = $file->store($dir);
-   return str_repeat("$dir/", '', $path);
+Route::post('/add-image', function (Request $request) {
+    $file = $request->file('file');
+    $dir = 'public/images';
+    $path = $file->store($dir);
+    return str_replace("$dir/", '', $path);
 });

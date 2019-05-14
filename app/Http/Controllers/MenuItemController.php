@@ -35,27 +35,28 @@ class MenuItemController extends Controller
      */
     public function store(Request $request)
     {
-        if (!$request->user()->can('edit-menu')){
+        if (!$request->user()->can('edit-menu')) {
             return response('Unauthorized', 403);
         }
 
         $request->validate([
-           'name' => 'required|max:128',
-           'description' => 'required|max:512',
-           'price' => 'required|numeric',
-           'image' => 'required'
+            'name' => 'required|max:128',
+            'description' => 'required|max:512',
+            'price' => 'required|numeric|min:0',
+            'category_id' => 'required|numeric',
+            'image' => 'required'
         ]);
 
-        MenuItem::create($request->post);
+        MenuItem::create($request->post());
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\MenuItem  $menuItem
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(MenuItem $menuItem)
     {
         //
     }
@@ -63,10 +64,10 @@ class MenuItemController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\MenuItem  $menuItem
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(MenuItem $menuItem)
     {
         //
     }
@@ -75,10 +76,10 @@ class MenuItemController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\MenuItem  $menuItem
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, MenuItem $menuItem)
     {
         //
     }
@@ -86,10 +87,10 @@ class MenuItemController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\MenuItem  $menuItem
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(MenuItem $menuItem)
     {
         //
     }
