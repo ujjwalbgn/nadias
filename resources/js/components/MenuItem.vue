@@ -12,7 +12,8 @@
                 <option value="">Select a category</option>
                 <option v-for="cat in initialCategories" :value="cat.id" :key="cat.id">{{cat.name}}</option>
             </select>
-        </div>        
+        </div>
+        <!--<drop-zone :options="dropzoneOptions" id="dz" ref="dropzone"></drop-zone>-->
         <button type="submit">Save</button>
         <ul>
             <li v-for="(error, index) in errors" :key="index">{{error}}</li>
@@ -21,10 +22,21 @@
 </template>
 
 <script>
+    import vue2Dropzone from 'vue2-dropzone'
+    import 'vue2-dropzone/dist/vue2Dropzone.min.css';
     export default {
+        components: {
+          dropZone: vue2Dropzone
+        },
+
         props: ['initial-categories'],
         data() {
             return {
+                dropzoneOptions: {
+                    url: '/api/add-image',
+                    thumbnailWidth: 200
+                }
+                ,
                 item: {
                     name: '',
                     price: 0.00,
