@@ -25,3 +25,5 @@ Route::post('/add-image', function (Request $request) {
     $path = $file->store($dir);
     return str_replace("$dir/", '', $path);
 });
+
+Route::get('/categories/{category}/items','CategoryController@items');

@@ -27,6 +27,11 @@ class CategoriesTableSeeder extends Seeder
                 'image' => 'burger.jpg',
                 'display_order' => 3
             ],
+            [
+                'name' => 'Desserts',
+                'image' => 'brownie.jpg',
+                'display_order' => 4
+            ],
         ]);
     }
 }
